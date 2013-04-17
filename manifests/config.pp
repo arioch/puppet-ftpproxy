@@ -23,7 +23,7 @@ class ftpproxy::config {
   }
 
   # Chroot if requested
-  if $chroot_enable {
+  if $::ftpproxy::chroot_enable {
     file { $::ftpproxy::chroot_dir:
       ensure => directory,
       mode   => $::ftpproxy::config_dir_mode,
@@ -33,7 +33,7 @@ class ftpproxy::config {
   }
 
   # Adjust /etc/default/ftp-proxy
-  if $service_enable and $service_ensure == 'running' {
+  if $::ftpproxy::service_enable and $::ftpproxy::service_ensure == 'running' {
     augeas { 'ftpproxy RUN_DAEMON' :
       context => '/files/etc/default/ftp-proxy',
       changes => 'set RUN_DAEMON yes',
