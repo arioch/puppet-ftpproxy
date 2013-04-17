@@ -8,7 +8,7 @@ class ftpproxy::params {
   $destination_transfermode = 'client'
   $fork_limit               = '40'
   $listen_address           = '0.0.0.0'
-  $listen_port              = '21'
+  $listen_port              = 'ftp'
   $log_destination          = '/var/log/ftp-proxy/ftp-proxy.log'
   $max_clients              = '64'
   $same_address             = false
