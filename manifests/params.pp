@@ -1,21 +1,20 @@
 # = Class ftpproxy::params
 #
 class ftpproxy::params {
-
-  chroot_dir               = '/var/lib/ftp-proxy'
-  chroot_enable            = false
-  destination_address      = 'localhost'
-  destination_port         = '21'
-  destination_transfermode = 'client'
-  fork_limit               = '40'
-  listen_address           = '0.0.0.0'
-  listen_port              = '21'
-  log_destination          = '/var/log/ftp-proxy/ftp-proxy.log'
-  max_clients              = '64'
-  same_address             = false
-  server_type              = 'standalone'
-  time_out                 = '900'
-  translated_address       = '0.0.0.0'
+  $chroot_dir               = '/var/lib/ftp-proxy'
+  $chroot_enable            = false
+  $destination_address      = 'localhost'
+  $destination_port         = '21'
+  $destination_transfermode = 'client'
+  $fork_limit               = '40'
+  $listen_address           = '0.0.0.0'
+  $listen_port              = '21'
+  $log_destination          = '/var/log/ftp-proxy/ftp-proxy.log'
+  $max_clients              = '64'
+  $same_address             = false
+  $server_type              = 'standalone'
+  $time_out                 = '900'
+  $translated_address       = '0.0.0.0'
 
   case $::operatingsystem {
     'Debian': {
