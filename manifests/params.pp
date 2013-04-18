@@ -35,7 +35,7 @@ class ftpproxy::params {
       $service_ensure     = running
       $service_hasrestart = true
       $service_hasstatus  = false
-      $service_name       = 'ftpproxy'
+      $service_name       = 'ftp-proxy'
     }
 
     default: {
