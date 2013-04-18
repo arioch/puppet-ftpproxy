@@ -23,8 +23,8 @@ class ftpproxy::params {
       $config_file_mode   = '0644'
       $config_group       = 'root'
       $config_user        = 'root'
-      $daemon_group       = 'nobody'
-      $daemon_user        = 'nogroup'
+      $daemon_group       = 'nogroup'
+      $daemon_user        = 'nobody'
       $log_dir            = '/var/log/ftp-proxy'
       $pid_file           = '/var/run/ftp-proxy.pid'
       $pkg_deps           = undef
