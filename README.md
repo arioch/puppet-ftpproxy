@@ -20,8 +20,8 @@
 
     node /box/ {
       class { 'ftpproxy':
-        listen_address = '0.0.0.0'
-        listen_port    = '21'
+        listen_address => '0.0.0.0',
+        listen_port    => '21',
       }
     }
 
@@ -29,8 +29,8 @@
 
     node /box/ {
       class { 'ftpproxy':
-        chroot_dir    = '/var/lib/ftp-proxy'
-        chroot_enable = true
+        chroot_dir    => '/var/lib/ftp-proxy',
+        chroot_enable => true,
       }
     }
 
