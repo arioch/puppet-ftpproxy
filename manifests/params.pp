@@ -3,7 +3,7 @@
 class ftpproxy::params {
   $chroot_dir               = '/var/lib/ftp-proxy'
   $chroot_enable            = false
-  $destination_address      = 'localhost'
+  $destination_address      = $::fqdn
   $destination_port         = '21'
   $destination_transfermode = 'client'
   $fork_limit               = '40'
