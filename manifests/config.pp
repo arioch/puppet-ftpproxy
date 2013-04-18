@@ -20,6 +20,10 @@ class ftpproxy::config {
       ensure => directory,
       owner  => $::ftpproxy::daemon_user,
       group  => $::ftpproxy::daemon_group;
+
+    "${ftpproxy::config_dir}/ftp-proxy.conf":
+      ensure  => present,
+      content => template("ftpproxy/ftp-proxy-${::osfamily}.conf.erb");
   }
 
   # Chroot if requested

@@ -85,7 +85,7 @@
 # AllowTransProxy).
 #
 # DestinationAddress	server.domain.tld
-DestinationAddress	localhost
+DestinationAddress <%= destination_address %>
 
 #
 # (Local) port range for all connections to the server. The
@@ -98,7 +98,7 @@ DestinationAddress	localhost
 # This is the port corresponding to DestinationAddress. It
 # defaults to 21, the standard FTP port.
 #
-# DestinationPort	21
+DestinationPort <%= destination_port %>
 
 #
 # Specify the FTP transfer mode to be used from the proxy to
@@ -109,6 +109,7 @@ DestinationAddress	localhost
 # DestinationTransferMode	client
 # DestinationTransferMode	passive
 # DestinationTransferMode	active
+DestinationTransferMode <%= destination_transfermode %>
 
 #
 # Defines the action that is taken when a data transfer command
@@ -131,14 +132,13 @@ DestinationAddress	localhost
 # Limits the number of incoming client connections per minute
 # in daemon mode - it defaults to 40 connections per minute.
 #
-# ForkLimit		40
+ForkLimit <%= fork_limit %>
 
 #
 # If given, change GID to give up root privileges. In POSIX
 # environments this changes all group ID's.
 #
-Group			nogroup
-# Group			nobody
+Group <%= daemon_group %>
 
 #
 # Defines a different base distinguished name that is used
@@ -224,7 +224,7 @@ Group			nogroup
 # and is also the default). Address can be given as dotted
 # decimal IP address or DNS host name.
 #
-# Listen		0.0.0.0
+Listen <%= listen_address %>
 
 #
 # Determine where to send logging information. If the value
@@ -237,6 +237,7 @@ Group			nogroup
 # LogDestination	daemon
 # LogDestination	/var/log/ftp-proxy.log
 # LogDestination	|/usr/bin/rotatelogs /var/log/ftp-proxy.log
+LogDestination <%= log_destination %>
 
 #
 # Defines the maximal level of logged messages. The levels
@@ -250,7 +251,7 @@ Group			nogroup
 #
 # Maximum number of concurrent clients if running as daemon.
 #
-# MaxClients		64
+MaxClients <%= max_clients %>
 
 #
 # This message (or rather the contents of a file with this
@@ -293,14 +294,13 @@ Group			nogroup
 # Write an ASCII file with the Program ID if given. Only valid
 # if running as daemon, in which case the daemon itself uses it.
 #
-# PidFile		/var/run/ftp-proxy.pid
+PidFile <%= pid_file %>
 
 #
 # Port to listen on (for the SERVER-PI). Default is "ftp".
 # Can be given as TCP service name or as a plain number.
 #
-# Port			ftp
-Port 2121
+Port <%= listen_port %>
 
 #
 # The following flag specifies the action when a PORT command
@@ -318,7 +318,7 @@ Port 2121
 # you say no here, the proxy is able to take part in so called
 # third party server to server transfers.
 #
-# SameAddress		yes
+SameAddress <% if @same_address %>yes<% else %>no<% end %>
 
 #
 # If given, chroot() to this directory after initializing.
@@ -327,7 +327,7 @@ Port 2121
 # all needed libraries, configuration files, ... into this
 # directory first!
 #
-# ServerRoot		/var/lib/ftp-proxy/rundir
+<% if @chroot_enable %>ServerRoot <%= chroot_dir %><% end %>
 
 #
 # Determine whether to run as daemon or in inetd mode. This can
@@ -335,6 +335,7 @@ Port 2121
 #
 # ServerType		inetd
 # ServerType		standalone
+ServerType <%= server_type %>
 
 #
 # Enable this flag if you want to use a random port in
@@ -364,6 +365,7 @@ Port 2121
 # Default is 900 seconds, i.e. 15 minutes.
 #
 # TimeOut		900
+TimeOut <%= time_out %>
 
 #
 # If the proxy server needs to advertise itself (in outgoing
@@ -372,7 +374,7 @@ Port 2121
 # option can be used. Relevant e.g. when using a NAT device
 # in the path.
 #
-# TranslatedAddress	0.0.0.0
+TranslatedAddress <%= translated_address %>
 
 #
 # If given, change UID to give up root privileges. In POSIX
@@ -380,8 +382,7 @@ Port 2121
 # If set, the proxy will use non-privileged ports (>1024) for
 # active mode ftp transfers - see also ActiveMin/MaxDataPort.
 #
-User			nobody
-# User			ftpproxy
+User <%= daemon_user %>
 
 #
 # Defines the mechanism, the proxy should use to authenticate
