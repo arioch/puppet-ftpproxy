@@ -20,10 +20,18 @@ class ftpproxy::config {
       ensure => directory,
       owner  => $::ftpproxy::daemon_user,
       group  => $::ftpproxy::daemon_group;
+  }
 
-    "${ftpproxy::config_dir}/ftp-proxy.conf":
-      ensure  => present,
-      content => template("ftpproxy/ftp-proxy-${::osfamily}.conf.erb");
+  concat { "${::ftpproxy::config_dir}/ftp-proxy.conf":
+    owner => $::ftpproxy::config_user,
+    group => $::ftpproxy::config_group,
+    mode  => $::ftpproxy::config_mode,
+  }
+
+  concat::fragment { 'ftpproxy.conf_header':
+    target  => "${::ftpproxy::config_dir}/ftp-proxy.conf",
+    content => template("ftpproxy/ftp-proxy-${::osfamily}.conf.erb"),
+    order   => 01,
   }
 
   # Chroot if requested

@@ -34,3 +34,16 @@
       }
     }
 
+### Add per user configuration
+
+    ftpproxy::user { 'user1':
+      ensure   => present,
+      time_out => '90',
+    }
+
+    ftpproxy::user { 'user2':
+      ensure       => present,
+      time_out     => '90',
+      same_address => true,
+    }
+
