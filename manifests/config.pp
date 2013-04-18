@@ -36,16 +36,24 @@ class ftpproxy::config {
     }
   }
 
-  # Adjust /etc/default/ftp-proxy
-  if $::ftpproxy::service_enable and $::ftpproxy::service_ensure == 'running' {
-    augeas { 'ftpproxy RUN_DAEMON' :
-      context => '/files/etc/default/ftp-proxy',
-      changes => 'set RUN_DAEMON yes',
+  # Adjust /etc/default/ftp-proxy on Debian systems
+  case $::operatingsystem {
+    /Debian|Ubuntu/: {
+      if $::ftpproxy::service_enable
+      and $::ftpproxy::service_ensure == 'running' {
+        augeas { 'ftpproxy RUN_DAEMON' :
+          context => '/files/etc/default/ftp-proxy',
+          changes => 'set RUN_DAEMON yes',
+        }
+      } else {
+        augeas { 'ftpproxy RUN_DAEMON' :
+          context => '/files/etc/default/ftp-proxy',
+          changes => 'set RUN_DAEMON no',
+        }
+      }
     }
-  } else {
-    augeas { 'ftpproxy RUN_DAEMON' :
-      context => '/files/etc/default/ftp-proxy',
-      changes => 'set RUN_DAEMON no',
+
+    default: {
     }
   }
 }
