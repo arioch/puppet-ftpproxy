@@ -6,8 +6,8 @@ class ftpproxy::install {
   }
 
   if $::ftpproxy::pkg_deps {
-    package { $::awstats::pkg_deps:
-      ensure => $::awstats::pkg_ensure,
+    package { $::ftpproxy::pkg_deps:
+      ensure => $::ftpproxy::pkg_ensure,
       before => Package[$::ftpproxy::pkg_list],
     }
   }
