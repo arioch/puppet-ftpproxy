@@ -1,4 +1,4 @@
-# = Class ftpproxy::config
+# == Class ftpproxy::config
 #
 class ftpproxy::config {
   File {

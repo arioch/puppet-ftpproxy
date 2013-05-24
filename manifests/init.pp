@@ -1,4 +1,4 @@
-# = Class ftpproxy
+# == Class ftpproxy
 #
 class ftpproxy (
   $chroot_dir               = $::ftpproxy::params::chroot_dir,

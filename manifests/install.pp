@@ -1,4 +1,4 @@
-# = Class ftpproxy::install
+# == Class ftpproxy::install
 #
 class ftpproxy::install {
   package { $::ftpproxy::pkg_list:
