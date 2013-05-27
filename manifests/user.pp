@@ -11,7 +11,7 @@ define ftpproxy::user (
   $destination_transfer_mode = undef,
   $passive_max_dataport      = undef,
   $passive_min_dataport      = undef,
-  $same_address              = false,
+  $same_address              = true,
   $time_out                  = '90',
   $user_name                 = $name,
   $valid_commands            = undef,
