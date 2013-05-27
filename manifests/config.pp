@@ -23,9 +23,9 @@ class ftpproxy::config {
   }
 
   concat { "${::ftpproxy::config_dir}/ftp-proxy.conf":
-    owner => $::ftpproxy::config_user,
     group => $::ftpproxy::config_group,
-    mode  => $::ftpproxy::config_mode,
+    mode  => $::ftpproxy::config_file_mode,
+    owner => $::ftpproxy::config_user,
   }
 
   concat::fragment { 'ftpproxy.conf_header':
