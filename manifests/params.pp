@@ -1,7 +1,6 @@
 # == Class ftpproxy::params
 #
 class ftpproxy::params {
-  $chroot_dir               = '/var/lib/ftp-proxy'
   $chroot_enable            = false
   $destination_address      = $::fqdn
   $destination_port         = '21'
@@ -18,6 +17,7 @@ class ftpproxy::params {
 
   case $::operatingsystem {
     'Debian': {
+      $chroot_dir         = '/var/lib/ftp-proxy'
       $config_dir         = '/etc/proxy-suite'
       $config_dir_mode    = '0755'
       $config_file_mode   = '0644'
