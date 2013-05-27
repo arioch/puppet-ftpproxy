@@ -1,4 +1,108 @@
-# == Class ftpproxy
+# == Class: ftpproxy
+#
+# === Parameters:
+#
+# $chroot_dir::               Directory where to chroot daemon.
+#                             Default: operating system specific.
+#
+# $chroot_enable::            Enable/disable chroot.
+#                             Default: false.
+#
+# $config_dir::               Location of the main configuration directory.
+#                             Default: operating system specific.
+#
+# $config_dir_mode::          Posix file mode for configuration files directory.
+#                             Default: 0755.
+#
+# $config_file_mode::         Posix file mode for configuration files.
+#                             Default: 0644.
+#
+# $config_group::             Posix group for configuration files.
+#                             Default: operating system specific.
+#
+# $config_purge::             Enable/disable purging unmanaged files.
+#                             Default: undef.
+#
+# $config_user::              Posix user for configuration files.
+#                             Default: operating system specific.
+#
+# $daemon_group::             Unprivileged group to run daemon.
+#                             Default: operating system specific.
+#
+# $daemon_user::              Unprivileged user to run daemon.
+#                             Default: operating system specific.
+#
+# $destination_address::      Where to redirect incoming FTP traffic.
+#                             Default: 127.0.0.1.
+#
+# $destination_port::         Port corresponding to DestinationAddress.
+#                             Default: 21.
+#
+# $destination_transfermode:: Specify the FTP transfer mode to be used from
+#                             the proxy to the backend server.
+#                             Default: client.
+#
+# $fork_limit::               Limits the number of incoming client
+#                             connections per minute
+#                             Default: 40.
+#
+# $listen_address::           Set to listen on a specific interface.
+#                             Default: 0.0.0.0.
+#
+# $listen_port::              Port to listen on.
+#                             Default: 21.
+#
+# $log_destination::          Determine where to send logging information..
+#                             Default: operating system specific.
+#
+# $log_dir::                  Determine where to send logging information.
+#                             Default: operating system specific.
+#
+# $max_clients::              Maximum number of concurrent clients.
+#                             Default: 64.
+#
+# $pid_file::                 Determine where to store pid file.
+#                             Default: operating system specific.
+#
+# $pkg_deps::                 An array containing a number of dependencies that
+#                             need to be fulfilled before installing $pkg_list.
+#                             Default: operating system specific.
+#
+# $pkg_ensure::               Default: present.
+#
+# $pkg_list::                 An array containing the main package and possibly
+#                             a number of dependencies.
+#                             Default: operating system specific.
+#
+# $same_address::             Allow data connections only from the same host
+#                             where the control connection originated from?
+#                             Default: operating system specific.
+#
+# $server_type::              Determine whether to run as daemon or in inetd.
+#                             Default: operating system specific.
+#
+# $service_enable::           Enable/disable the daemon at boot time.
+#                             Default: operating system specific.
+#
+# $service_ensure::           Ensure daemon state.
+#                             Default: operating system specific.
+#
+# $service_hasrestart::       Specify whether or not the init script has restart.
+#                             Default: operating system specific.
+#
+# $service_hasstatus::        Specify whether or not the init script has status.
+#                             Default: operating system specific.
+#
+# $service_name::             Specify the name of the init script.
+#                             Default: operating system specific.
+#
+# $time_out::                 Terminate idle connection after $time_out seconds.
+#                             Default: 900.
+#
+# $translated_address::       Adjust if the proxy server needs to advertise
+#                             itself (in outgoing responses to the ftp-server)
+#                             with a different address than it actually has.
+#                             Default: 0.0.0.0.
 #
 class ftpproxy (
   $chroot_dir               = $::ftpproxy::params::chroot_dir,
