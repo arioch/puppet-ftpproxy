@@ -85,7 +85,7 @@
 # AllowTransProxy).
 #
 # DestinationAddress	server.domain.tld
-DestinationAddress <%= destination_address %>
+DestinationAddress <%= scope.lookupvar('ftpproxy::destination_address') %>
 
 #
 # (Local) port range for all connections to the server. The
@@ -98,7 +98,7 @@ DestinationAddress <%= destination_address %>
 # This is the port corresponding to DestinationAddress. It
 # defaults to 21, the standard FTP port.
 #
-DestinationPort <%= destination_port %>
+DestinationPort <%= scope.lookupvar('ftpproxy::destination_port') %>
 
 #
 # Specify the FTP transfer mode to be used from the proxy to
@@ -109,7 +109,7 @@ DestinationPort <%= destination_port %>
 # DestinationTransferMode	client
 # DestinationTransferMode	passive
 # DestinationTransferMode	active
-DestinationTransferMode <%= destination_transfermode %>
+DestinationTransferMode <%= scope.lookupvar('destination_transfermode') %>
 
 #
 # Defines the action that is taken when a data transfer command
@@ -132,13 +132,13 @@ DestinationTransferMode <%= destination_transfermode %>
 # Limits the number of incoming client connections per minute
 # in daemon mode - it defaults to 40 connections per minute.
 #
-ForkLimit <%= fork_limit %>
+ForkLimit <%= scope.lookupvar('fork_limit') %>
 
 #
 # If given, change GID to give up root privileges. In POSIX
 # environments this changes all group ID's.
 #
-Group <%= daemon_group %>
+Group <%= scope.lookupvar('daemon_group') %>
 
 #
 # Defines a different base distinguished name that is used
@@ -224,7 +224,7 @@ Group <%= daemon_group %>
 # and is also the default). Address can be given as dotted
 # decimal IP address or DNS host name.
 #
-Listen <%= listen_address %>
+Listen <%= scope.lookupvar('listen_address') %>
 
 #
 # Determine where to send logging information. If the value
@@ -237,7 +237,7 @@ Listen <%= listen_address %>
 # LogDestination	daemon
 # LogDestination	/var/log/ftp-proxy.log
 # LogDestination	|/usr/bin/rotatelogs /var/log/ftp-proxy.log
-LogDestination <%= log_destination %>
+LogDestination <%= scope.lookupvar('log_destination') %>
 
 #
 # Defines the maximal level of logged messages. The levels
@@ -251,7 +251,7 @@ LogDestination <%= log_destination %>
 #
 # Maximum number of concurrent clients if running as daemon.
 #
-MaxClients <%= max_clients %>
+MaxClients <%= scope.lookupvar('max_clients') %>
 
 #
 # This message (or rather the contents of a file with this
@@ -294,13 +294,13 @@ MaxClients <%= max_clients %>
 # Write an ASCII file with the Program ID if given. Only valid
 # if running as daemon, in which case the daemon itself uses it.
 #
-PidFile <%= pid_file %>
+PidFile <%= scope.lookupvar('pid_file') %>
 
 #
 # Port to listen on (for the SERVER-PI). Default is "ftp".
 # Can be given as TCP service name or as a plain number.
 #
-Port <%= listen_port %>
+Port <%= scope.lookupvar('listen_port') %>
 
 #
 # The following flag specifies the action when a PORT command
@@ -327,7 +327,7 @@ SameAddress <% if @same_address %>yes<% else %>no<% end %>
 # all needed libraries, configuration files, ... into this
 # directory first!
 #
-<% if @chroot_enable %>ServerRoot <%= chroot_dir %><% end %>
+<% if @chroot_enable %>ServerRoot <%= scope.lookupvar('chroot_dir') %><% end %>
 
 #
 # Determine whether to run as daemon or in inetd mode. This can
@@ -335,7 +335,7 @@ SameAddress <% if @same_address %>yes<% else %>no<% end %>
 #
 # ServerType		inetd
 # ServerType		standalone
-ServerType <%= server_type %>
+ServerType <%= scope.lookupvar('server_type') %>
 
 #
 # Enable this flag if you want to use a random port in
@@ -365,7 +365,7 @@ ServerType <%= server_type %>
 # Default is 900 seconds, i.e. 15 minutes.
 #
 # TimeOut		900
-TimeOut <%= time_out %>
+TimeOut <%= scope.lookupvar('time_out') %>
 
 #
 # If the proxy server needs to advertise itself (in outgoing
@@ -374,7 +374,7 @@ TimeOut <%= time_out %>
 # option can be used. Relevant e.g. when using a NAT device
 # in the path.
 #
-TranslatedAddress <%= translated_address %>
+TranslatedAddress <%= scope.lookupvar('translated_address') %>
 
 #
 # If given, change UID to give up root privileges. In POSIX
@@ -382,7 +382,7 @@ TranslatedAddress <%= translated_address %>
 # If set, the proxy will use non-privileged ports (>1024) for
 # active mode ftp transfers - see also ActiveMin/MaxDataPort.
 #
-User <%= daemon_user %>
+User <%= scope.lookupvar('daemon_user') %>
 
 #
 # Defines the mechanism, the proxy should use to authenticate
