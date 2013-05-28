@@ -1,4 +1,4 @@
-# == Class ftpproxy::params
+# == Class: ftpproxy::params
 #
 class ftpproxy::params {
   $chroot_enable            = false

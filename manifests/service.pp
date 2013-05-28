@@ -1,4 +1,4 @@
-# == Class ftpproxy
+# == Class: ftpproxy::service
 #
 class ftpproxy::service {
   service { $::ftpproxy::service_name:
