@@ -37,12 +37,14 @@ describe 'ftpproxy', :type => :class do
     it { should contain_file('_VALUE_').with_ensure('directory') }
   end
 
-  #context 'on Debian with parameter: chroot_enable => true and chroot_dir => ""' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :chroot_enable => true, :chroot_dir => '' } }
-  #
-  #  it { should contain_file('_VALUE_').with_ensure('directory') and raise_error(Puppet::Error) }
-  #end
+  context 'on Debian with parameter: chroot_enable => true and chroot_dir => undef' do
+    let (:facts) { debian_facts }
+    let (:params) { { :chroot_enable => true, :chroot_dir => '' } }
+
+    it do
+      expect { should create_class('ftpproxy')  }.to raise_error(Puppet::Error)
+    end
+  end
 
   context 'on Debian with parameter: config_dir' do
     let (:facts) { debian_facts }
