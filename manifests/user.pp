@@ -47,6 +47,10 @@
 #                               allowed from a client.
 #                               Default: undef.
 #
+# $welcome_string::             Replace the standard "<host> FTP server
+#                               (<version>) ready" in the initial 220 message.
+#                               Default: Welcome to %h.
+#
 define ftpproxy::user (
   $ensure                    = present,
   $active_max_dataport       = undef,

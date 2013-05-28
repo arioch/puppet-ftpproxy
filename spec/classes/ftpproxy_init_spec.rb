@@ -235,5 +235,12 @@ describe 'ftpproxy', :type => :class do
   #
   #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/TranslatedAddress.*_VALUE_/) }
   #end
+
+  context 'on Debian with parameter welcome_string' do
+    let (:facts) { debian_facts }
+    let (:params) { { :welcome_string => '_VALUE_' } }
+
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/WelcomeString.*_VALUE_/) }
+  end
 end
 

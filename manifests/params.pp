@@ -14,6 +14,7 @@ class ftpproxy::params {
   $server_type              = 'standalone'
   $time_out                 = '900'
   $translated_address       = '0.0.0.0'
+  $welcome_string           = 'Welcome to %h'
 
   case $::operatingsystem {
     'Debian': {

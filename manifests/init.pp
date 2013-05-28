@@ -137,6 +137,7 @@ class ftpproxy (
   $service_name             = $::ftpproxy::params::service_name,
   $time_out                 = $::ftpproxy::params::time_out,
   $translated_address       = $::ftpproxy::params::translated_address,
+  $welcome_string           = $::ftpproxy::params::welcome_string,
 ) inherits ftpproxy::params {
   class { 'ftpproxy::install': } ->
   class { 'ftpproxy::config': } ~>
