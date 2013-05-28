@@ -221,6 +221,18 @@ describe 'ftpproxy', :type => :class do
     it { should contain_service('_VALUE_') }
   end
 
+  context 'on Debian with parameter service_enable => true and service_ensure => disabled' do
+    let (:facts) { debian_facts }
+    let (:params) { { :service_enable => 'true', :service_ensure => 'disabled' } }
+    it { should contain_augeas('ftpproxy RUN_DAEMON').with_changes(/set RUN_DAEMON no/) }
+  end
+
+  context 'on Debian with parameter service_enable => true and service_ensure => running' do
+    let (:facts) { debian_facts }
+    let (:params) { { :service_enable => 'true', :service_ensure => 'running' } }
+    it { should contain_augeas('ftpproxy RUN_DAEMON').with_changes(/set RUN_DAEMON yes/) }
+  end
+
   #context 'on Debian with parameter time_out' do
   #  let (:facts) { debian_facts }
   #  let (:params) { { :time_out => '_VALUE_' } }
