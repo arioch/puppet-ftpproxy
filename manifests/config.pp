@@ -37,7 +37,7 @@ class ftpproxy::config {
   # Chroot if requested
   if $::ftpproxy::chroot_enable {
     if ! $::ftpproxy::chroot_dir {
-      fail "Chroot enabled without providing chroot directory."
+      fail 'Chroot enabled without providing chroot directory.'
     }
 
     file { $::ftpproxy::chroot_dir:
