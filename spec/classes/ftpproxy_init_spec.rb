@@ -30,13 +30,12 @@ describe 'ftpproxy', :type => :class do
     it { should_not contain_file('_VALUE_').with_ensure('directory') }
   end
 
-  #context 'on Debian with parameter: chroot_enable' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :chroot_enable => true } }
-  #  let (:params) { { :chroot_dir => '_VALUE_' } }
-  #
-  #  it { should contain_file('_VALUE_').with_ensure('directory') }
-  #end
+  context 'on Debian with parameter: chroot_enable' do
+    let (:facts) { debian_facts }
+    let (:params) { { :chroot_enable => true, :chroot_dir => '_VALUE_' } }
+
+    it { should contain_file('_VALUE_').with_ensure('directory') }
+  end
 
   context 'on Debian with parameter: config_dir' do
     let (:facts) { debian_facts }
