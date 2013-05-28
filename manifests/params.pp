@@ -2,7 +2,7 @@
 #
 class ftpproxy::params {
   $chroot_enable            = false
-  $destination_address      = '127.0.0.1'
+  $destination_address      = $::ipaddress
   $destination_port         = '21'
   $destination_transfermode = 'client'
   $fork_limit               = '40'
