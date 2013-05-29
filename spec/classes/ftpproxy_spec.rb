@@ -193,12 +193,19 @@ describe 'ftpproxy', :type => :class do
     it { should contain_package('_VALUE_') }
   end
 
-  #context 'on Debian with parameter same_address' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :same_address => '_VALUE_' } }
-  #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/SameAddress.*_VALUE_/) }
-  #end
+  context 'on Debian with parameter same_address' do
+    let (:facts) { debian_facts }
+    let (:params) { { :same_address => true } }
+
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/SameAddress yes/) }
+  end
+
+  context 'on Debian with parameter same_address' do
+    let (:facts) { debian_facts }
+    let (:params) { { :same_address => false } }
+
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/SameAddress no/) }
+  end
 
   #context 'on Debian with parameter server_type' do
   #  let (:facts) { debian_facts }
