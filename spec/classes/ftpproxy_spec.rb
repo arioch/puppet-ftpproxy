@@ -221,6 +221,13 @@ describe 'ftpproxy', :type => :class do
     it { should contain_service('ftp-proxy').with_ensure('_VALUE_') }
   end
 
+  context 'on Debian with parameter: service_hasrestart' do
+    let (:facts) { debian_facts }
+    let (:params) { { :service_hasrestart => true } }
+
+    it { should contain_service('ftp-proxy').with_hasrestart('true') }
+  end
+
   context 'on Debian with parameter: service_hasstatus' do
     let (:facts) { debian_facts }
     let (:params) { { :service_hasstatus => true } }
