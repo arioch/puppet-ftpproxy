@@ -127,21 +127,20 @@ describe 'ftpproxy', :type => :class do
   #  let (:facts) { debian_facts }
   #  let (:params) { { :listen_address => '_VALUE_' } }
   #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/ListenAddress _VALUE_/) }
+  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/Listen _VALUE_/) }
   #end
 
   #context 'on Debian with parameter listen_port' do
   #  let (:facts) { debian_facts }
   #  let (:params) { { :listen_port => '_VALUE_' } }
   #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/ListenPort _VALUE_/) }
+  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/Port _VALUE_/) }
   #end
 
   #context 'on Debian with parameter log_destination' do
   #  let (:facts) { debian_facts }
   #  let (:params) { { :log_destination => '_VALUE_' } }
   #
-  #  it { should create_ftpproxy__user('_VALUE_') }
   #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/LogDestination _VALUE_/) }
   #end
 
@@ -156,7 +155,6 @@ describe 'ftpproxy', :type => :class do
   #  let (:facts) { debian_facts }
   #  let (:params) { { :max_clients => '_VALUE_' } }
   #
-  #  it { should create_ftpproxy__user('_VALUE_') }
   #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/MaxClients _VALUE_/) }
   #end
 
