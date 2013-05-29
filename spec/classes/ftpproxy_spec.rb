@@ -209,9 +209,9 @@ describe 'ftpproxy', :type => :class do
 
   context 'on Debian with parameter: service_enable' do
     let (:facts) { debian_facts }
-    let (:params) { { :service_enable => '_VALUE_' } }
+    let (:params) { { :service_enable => true } }
 
-    it { should contain_service('ftp-proxy').with_enable('_VALUE_') }
+    it { should contain_service('ftp-proxy').with_enable('true') }
   end
 
   context 'on Debian with parameter: service_ensure' do
@@ -223,9 +223,9 @@ describe 'ftpproxy', :type => :class do
 
   context 'on Debian with parameter: service_hasstatus' do
     let (:facts) { debian_facts }
-    let (:params) { { :service_hasstatus => '_VALUE_' } }
+    let (:params) { { :service_hasstatus => true } }
 
-    it { should contain_service('ftp-proxy').with_hasstatus('_VALUE_') }
+    it { should contain_service('ftp-proxy').with_hasstatus('true') }
   end
 
   context 'on Debian with parameter: service_name' do
@@ -237,13 +237,13 @@ describe 'ftpproxy', :type => :class do
 
   context 'on Debian with parameter service_enable => true and service_ensure => disabled' do
     let (:facts) { debian_facts }
-    let (:params) { { :service_enable => 'true', :service_ensure => 'disabled' } }
+    let (:params) { { :service_enable => true, :service_ensure => 'disabled' } }
     it { should contain_augeas('ftpproxy RUN_DAEMON').with_changes(/set RUN_DAEMON no/) }
   end
 
   context 'on Debian with parameter service_enable => true and service_ensure => running' do
     let (:facts) { debian_facts }
-    let (:params) { { :service_enable => 'true', :service_ensure => 'running' } }
+    let (:params) { { :service_enable => true, :service_ensure => 'running' } }
     it { should contain_augeas('ftpproxy RUN_DAEMON').with_changes(/set RUN_DAEMON yes/) }
   end
 
