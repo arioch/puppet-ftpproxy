@@ -167,12 +167,12 @@ describe 'ftpproxy', :type => :class do
     it { should create_class('ftpproxy') }
   end
 
-  #context 'on Debian with parameter: pkg_deps' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :pkg_deps => '_VALUE_' } }
-  #
-  #  it { should contain_package('ftp-proxy').with_deps('_VALUE_') }
-  #end
+  context 'on Debian with parameter: pkg_deps' do
+    let (:facts) { debian_facts }
+    let (:params) { { :pkg_deps => '_VALUE_' } }
+
+    it { should contain_package('_VALUE_') }
+  end
 
   context 'on Debian with parameter: pkg_ensure' do
     let (:facts) { debian_facts }
