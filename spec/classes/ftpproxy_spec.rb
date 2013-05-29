@@ -171,7 +171,7 @@ describe 'ftpproxy', :type => :class do
     let (:facts) { debian_facts }
     let (:params) { { :pkg_deps => '_VALUE_' } }
 
-    it { should contain_package('_VALUE_') }
+    it { should contain_package('_VALUE_').with_ensure('present') }
   end
 
   context 'on Debian with parameter: pkg_ensure' do
@@ -179,6 +179,13 @@ describe 'ftpproxy', :type => :class do
     let (:params) { { :pkg_ensure => '_VALUE_' } }
 
     it { should contain_package('ftp-proxy').with_ensure('_VALUE_') }
+  end
+
+  context 'on Debian with parameter: pkg_ensure and pkg_deps' do
+    let (:facts) { debian_facts }
+    let (:params) { { :pkg_ensure => '_VALUE_', :pkg_deps => '_VALUE_' } }
+
+    it { should contain_package('_VALUE_').with_ensure('_VALUE_') }
   end
 
   context 'on Debian with parameter: pkg_list' do
