@@ -109,40 +109,40 @@ describe 'ftpproxy', :type => :class do
     it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/DestinationPort _VALUE_/) }
   end
 
-  #context 'on Debian with parameter destination_transfermode' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :destination_transfermode => '_VALUE_' } }
-  #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/DestinationTransferMode _VALUE_/) }
-  #end
+  context 'on Debian with parameter destination_transfermode' do
+    let (:facts) { debian_facts }
+    let (:params) { { :destination_transfermode => '_VALUE_' } }
 
-  #context 'on Debian with parameter fork_limit' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :fork_limit => '_VALUE_' } }
-  #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/ForkLimit _VALUE_/) }
-  #end
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/DestinationTransferMode _VALUE_/) }
+  end
 
-  #context 'on Debian with parameter listen_address' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :listen_address => '_VALUE_' } }
-  #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/Listen _VALUE_/) }
-  #end
+  context 'on Debian with parameter fork_limit' do
+    let (:facts) { debian_facts }
+    let (:params) { { :fork_limit => '_VALUE_' } }
 
-  #context 'on Debian with parameter listen_port' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :listen_port => '_VALUE_' } }
-  #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/Port _VALUE_/) }
-  #end
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/ForkLimit _VALUE_/) }
+  end
 
-  #context 'on Debian with parameter log_destination' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :log_destination => '_VALUE_' } }
-  #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/LogDestination _VALUE_/) }
-  #end
+  context 'on Debian with parameter listen_address' do
+    let (:facts) { debian_facts }
+    let (:params) { { :listen_address => '_VALUE_' } }
+
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/Listen _VALUE_/) }
+  end
+
+  context 'on Debian with parameter listen_port' do
+    let (:facts) { debian_facts }
+    let (:params) { { :listen_port => '_VALUE_' } }
+
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/Port _VALUE_/) }
+  end
+
+  context 'on Debian with parameter log_destination' do
+    let (:facts) { debian_facts }
+    let (:params) { { :log_destination => '_VALUE_' } }
+
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/LogDestination _VALUE_/) }
+  end
 
   context 'on Debian with parameter: log_dir' do
     let (:facts) { debian_facts }
