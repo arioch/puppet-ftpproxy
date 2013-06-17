@@ -139,14 +139,13 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/[_VALUE_]/) }
   end
 
-  # FIXME:
-  #context 'on Debian with parameter valid_commands' do
-  #  let (:facts) { debian_facts }
-  #  let (:title) { '_VALUE_' }
-  #  let (:params) { { :valid_commands => '_VALUE_' } }
+  context 'on Debian with parameter valid_commands' do
+    let (:facts) { debian_facts }
+    let (:title) { '_VALUE_' }
+    let (:params) { { :valid_commands => [ '_VALUE_' ] } }
 
-  #  it { should create_ftpproxy__user('_VALUE_') }
-  #  it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/ValidCommands _VALUE_/) }
-  #end
+    it { should create_ftpproxy__user('_VALUE_') }
+    it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/ValidCommand.*_VALUE_/) }
+  end
 end
 
