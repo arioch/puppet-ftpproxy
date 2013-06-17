@@ -1,14 +1,14 @@
-[<%= name %>]
-  <% if @active_max_dataport %>ActiveMaxDataPort <%= active_max_dataport %><% else %># ActiveMaxDataPort<% end %>
-  <% if @active_min_dataport %>ActiveMinDataPort <%= active_min_dataport %><% else %># ActiveMinDataPort<% end %>
-  <% if @destination_address %>DestinationAddress <%= destination_address %><% else %># DestinationAddress<% end %>
-  <% if @destination_max_port %>DestinationMaxPort <%= destination_max_port %><% else %># DestinationMaxPort<% end %>
-  <% if @destination_min_port %>DestinationMinPort <%= destination_min_port %><% else %># DestinationMinPort<% end %>
-  <% if @destination_port %>DestinationPort <%= destination_port %><% else %># DestinationPort<% end %>
-  <% if @destination_transfer_mode %>DestinationTransferMode <%= destination_transfer_mode %><% else %># DestinationTransferMode<% end %>
-  <% if @passive_max_dataport %>PassiveMaxDataPort <%= passive_max_dataport %><% else %># PassiveMaxDataPort<% end %>
-  <% if @passive_min_dataport %>PassiveMinDataPort <%= passive_min_dataport %><% else %># PassiveMinDataPort<% end %>
+[<%= @name %>]
+  <% if @active_max_dataport %>ActiveMaxDataPort <%= @active_max_dataport %><% else %># ActiveMaxDataPort<% end %>
+  <% if @active_min_dataport %>ActiveMinDataPort <%= @active_min_dataport %><% else %># ActiveMinDataPort<% end %>
+  <% if @destination_address %>DestinationAddress <%= @destination_address %><% else %># DestinationAddress<% end %>
+  <% if @destination_max_port %>DestinationMaxPort <%= @destination_max_port %><% else %># DestinationMaxPort<% end %>
+  <% if @destination_min_port %>DestinationMinPort <%= @destination_min_port %><% else %># DestinationMinPort<% end %>
+  <% if @destination_port %>DestinationPort <%= @destination_port %><% else %># DestinationPort<% end %>
+  <% if @destination_transfer_mode %>DestinationTransferMode <%= @destination_transfer_mode %><% else %># DestinationTransferMode<% end %>
+  <% if @passive_max_dataport %>PassiveMaxDataPort <%= @passive_max_dataport %><% else %># PassiveMaxDataPort<% end %>
+  <% if @passive_min_dataport %>PassiveMinDataPort <%= @passive_min_dataport %><% else %># PassiveMinDataPort<% end %>
   <% if @same_address %>SameAddress yes<% else %># SameAddress yes<% end %>
-  <% if @time_out %>TimeOut <%= time_out %><% else %># TimeOut<% end %>
-  <% if @valid_commands %>ValidCommands <% valid_commands.join(', ').each do |cmd| %><%= cmd %><% end -%><% else %># ValidCommands<% end %>
+  <% if @time_out %>TimeOut <%= @time_out %><% else %># TimeOut<% end %>
+  <% if @valid_commands %>ValidCommands <%= @valid_commands.join(', ') %><% else %># ValidCommands<% end %>
 
