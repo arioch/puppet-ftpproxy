@@ -261,19 +261,19 @@ describe 'ftpproxy', :type => :class do
     it { should contain_augeas('ftpproxy RUN_DAEMON').with_changes(/set RUN_DAEMON yes/) }
   end
 
-  #context 'with parameter time_out' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :time_out => '_VALUE_' } }
-  #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/TimeOut.*_VALUE_/) }
-  #end
+  context 'with parameter time_out' do
+    let (:facts) { debian_facts }
+    let (:params) { { :time_out => '_VALUE_' } }
 
-  #context 'with parameter translated_address' do
-  #  let (:facts) { debian_facts }
-  #  let (:params) { { :translated_address => '_VALUE_' } }
-  #
-  #  it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/TranslatedAddress.*_VALUE_/) }
-  #end
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/TimeOut.*_VALUE_/) }
+  end
+
+  context 'with parameter translated_address' do
+    let (:facts) { debian_facts }
+    let (:params) { { :translated_address => '_VALUE_' } }
+
+    it { should contain_concat__fragment('ftpproxy.conf_header').with_content(/TranslatedAddress.*_VALUE_/) }
+  end
 
   context 'with parameter welcome_string' do
     let (:facts) { debian_facts }
