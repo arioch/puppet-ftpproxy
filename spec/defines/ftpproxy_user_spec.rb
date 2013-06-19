@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'ftpproxy::user', :type => :define do
   let (:pre_condition) { '$concat_basedir = "/tmp"' }
 
-  context 'on Debian without parameters' do
+  context 'without parameters' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
 
@@ -11,7 +11,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/[_VALUE_]/) }
   end
 
-  context 'on Debian with parameter ensure => present' do
+  context 'with parameter ensure => present' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :ensure => 'present' } }
@@ -21,7 +21,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_ensure('present') }
   end
 
-  context 'on Debian with parameter ensure => absent' do
+  context 'with parameter ensure => absent' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :ensure => 'absent' } }
@@ -31,7 +31,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_ensure('absent') }
   end
 
-  context 'on Debian with parameter active_max_dataport' do
+  context 'with parameter active_max_dataport' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :active_max_dataport => '_VALUE_' } }
@@ -40,7 +40,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/ActiveMaxDataPort _VALUE_/) }
   end
 
-  context 'on Debian with parameter active_min_dataport' do
+  context 'with parameter active_min_dataport' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :active_min_dataport => '_VALUE_' } }
@@ -49,7 +49,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/ActiveMinDataPort _VALUE_/) }
   end
 
-  context 'on Debian with parameter destination_address' do
+  context 'with parameter destination_address' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :destination_address => '_VALUE_' } }
@@ -58,7 +58,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/DestinationAddress _VALUE_/) }
   end
 
-  context 'on Debian with parameter destination_max_port' do
+  context 'with parameter destination_max_port' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :destination_max_port => '_VALUE_' } }
@@ -67,7 +67,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/DestinationMaxPort _VALUE_/) }
   end
 
-  context 'on Debian with parameter destination_min_port' do
+  context 'with parameter destination_min_port' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :destination_min_port => '_VALUE_' } }
@@ -76,7 +76,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/DestinationMinPort _VALUE_/) }
   end
 
-  context 'on Debian with parameter destination_port' do
+  context 'with parameter destination_port' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :destination_port => '_VALUE_' } }
@@ -85,7 +85,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/DestinationPort _VALUE_/) }
   end
 
-  context 'on Debian with parameter destination_transfer_mode' do
+  context 'with parameter destination_transfer_mode' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :destination_transfer_mode => '_VALUE_' } }
@@ -94,7 +94,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/DestinationTransferMode _VALUE_/) }
   end
 
-  context 'on Debian with parameter passive_max_dataport' do
+  context 'with parameter passive_max_dataport' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :passive_max_dataport => '_VALUE_' } }
@@ -103,7 +103,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/PassiveMaxDataPort _VALUE_/) }
   end
 
-  context 'on Debian with parameter passive_min_dataport' do
+  context 'with parameter passive_min_dataport' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :passive_min_dataport => '_VALUE_' } }
@@ -112,7 +112,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/PassiveMinDataPort _VALUE_/) }
   end
 
-  context 'on Debian with parameter same_address' do
+  context 'with parameter same_address' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :same_address => '_VALUE_' } }
@@ -121,7 +121,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/SameAddress yes/) }
   end
 
-  context 'on Debian with parameter time_out' do
+  context 'with parameter time_out' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :time_out => '_VALUE_' } }
@@ -130,7 +130,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/TimeOut _VALUE_/) }
   end
 
-  context 'on Debian with parameter user_name' do
+  context 'with parameter user_name' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :user_name => '_VALUE_' } }
@@ -139,7 +139,7 @@ describe 'ftpproxy::user', :type => :define do
     it { should contain_concat__fragment('ftpproxy_user__VALUE_').with_content(/[_VALUE_]/) }
   end
 
-  context 'on Debian with parameter valid_commands' do
+  context 'with parameter valid_commands' do
     let (:facts) { debian_facts }
     let (:title) { '_VALUE_' }
     let (:params) { { :valid_commands => [ '_VALUE_' ] } }
